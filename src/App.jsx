@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Formulario } from './components/Form'
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+  /* const { range, arrayOrdered, results, n } = calculate(
+ `63 73 40 77 65 70 58 75 86 90 55 72 73 56 76 69 94 66 84 53 75 89 42 64 65 47 62 88 48 84 77 89 76 86 75 60 64 67 65 69 33 79 69 76 35 49 96 73`)
+
+  const { totalData, totalIntervals, table, Elements } = calculateTable(results.method1, range, 33)
+  console.log(totalData, totalIntervals, table, Elements) */
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className='max-w-6xl m-auto text-center flex flex-col gap-9'>
+        <h1 className="text-2xl font-semibold uppercase"> Tablas de Estadistica </h1>
+
+        <Formulario/>
+      </main>
     </>
   )
 }
-
-export default App
