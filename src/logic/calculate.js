@@ -1,8 +1,9 @@
 export const calculate = (table) => {
 
-    if(table.includes(',')) {
+    if (table.includes(',')) {
         table = table.split(',')
     } else {
+        table = table.replace(/\s+/g, ' ')
         table = table.split(' ')
     }
     
@@ -10,19 +11,28 @@ export const calculate = (table) => {
 
     const max = Math.max(...array)
     const min = Math.min(...array)
-    const n = array.length 
+    const n = array.length // n -> Número de datos
 
-    const range = max - min
+    const range = (max - min).toFixed(2)
 
     const arrayOrdered = array.sort((a, b) => a - b)
 
     const results = {
-        method1: Math.sqrt(n),
-        method2: Math.cbrt(n),
+        method1: Math.sqrt(n).toFixed(3),
+        method2: Math.cbrt(n).toFixed(3),
         method3: (Math.log(n) * 3.3) + 1
     }
 
-    // Hacer método por tanteo -> ❌
+    // método por tanteo -> ✅
 
-    return { range, arrayOrdered, results, n }
+    const numberDatesForInterval = {}
+    let valueN
+
+    for(let i = 5; i <= 20; i++) {
+        valueN = range / i
+
+        if(valueN % 1 > 0.5 ) numberDatesForInterval["Interval " + i] = { numberData: valueN.toFixed(3) }
+    }
+
+    return { range, arrayOrdered, results, n, numberDatesForInterval }
 }

@@ -1,6 +1,6 @@
 import { Button } from './Button'
 
-export function ShowTable({ arrayOrdered, range, results, n }) {
+export function ShowTable({ arrayOrdered, range, results, n, numberDatesForInterval }) {
   return (
     <main className="flex flex-col gap-10">
 
@@ -19,12 +19,22 @@ export function ShowTable({ arrayOrdered, range, results, n }) {
 
             <section className="md:flex-grow md:order-none flex flex-col gap-y-4 justify-center place-items-center text-xl py-10 md:py-12 lg:py-20 px-10 border-y-2 border-primary">
                 <span> &#8731;{n} = <span className='text-green-200'> {results.method2} </span> </span>
-                <Button text={"Elejir este método"}/>
+                <Button text={"Elejir este método ❌"}/>
             </section>
 
             <section className="md:flex-grow md:order-none flex flex-col gap-y-4 justify-center place-items-center text-xl py-10 md:py-12 lg:py-20 px-10 border-y-2 border-primary">
                 <span> ln ({n}) * 3.3 + 1 = <span className='text-green-200'> {results.method3} </span> </span>
                 <Button text={"Elejir este método"}/>
+            </section>
+
+            <section className="md:col-start-1 md:col-end-4 md:flex-grow md:order-none flex flex-col md:flex-row md:flex-wrap md:gap-x-4 gap-y-4 justify-center place-items-center text-xl py-10 md:py-12 lg:py-20 px-10 border-y-2 border-primary">
+               {Object.keys(numberDatesForInterval).map((key, index) => {
+                     return (
+                        <p className='text-purple-300' key={index}> {key} = 
+                            <span className='text-red-400'> {numberDatesForInterval[key].numberData}</span> 
+                        </p>
+                     )
+               })}
             </section>
         </article>
     </main>
