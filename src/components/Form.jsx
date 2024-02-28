@@ -1,6 +1,8 @@
 import { Button } from "./Button"
 import { sendForm } from "../hooks/sendForm"
 import { ShowTable } from './ShowTable'
+import { createTable } from "../logic/createTable"
+import { ShowTableResults } from "./ShowTableResults"
 
 export function Formulario() {
     const {
@@ -27,7 +29,10 @@ export function Formulario() {
                 />
                 <Button text={"Ordenar"}/>
             </form>
+
             <ShowTable arrayOrdered={arrayOrdered} range={range} results={results} n={numberData} numberDatesForInterval={numberDatesForInterval} />
+
+            <ShowTableResults />
         </>
     )
 }
