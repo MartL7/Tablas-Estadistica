@@ -13,7 +13,8 @@ export function Formulario() {
         numberData,
         numberDatesForInterval,
         handleSubmit,
-        handleChange
+        handleChange,
+        min
     } = sendForm()
     
     return (
@@ -30,9 +31,7 @@ export function Formulario() {
                 <Button text={"Ordenar"}/>
             </form>
 
-            <ShowTable arrayOrdered={arrayOrdered} range={range} results={results} n={numberData} numberDatesForInterval={numberDatesForInterval} />
-
-            <ShowTableResults />
+            <ShowTable arrayOrdered={arrayOrdered} range={range} results={results} n={numberData} numberDatesForInterval={numberDatesForInterval} min={min} />
         </>
     )
 }

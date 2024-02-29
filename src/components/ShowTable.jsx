@@ -1,6 +1,12 @@
+import { useState } from 'react'
 import { Button } from './Button'
+import { ShowTableResults } from './ShowTableResults'
 
-export function ShowTable({ arrayOrdered, range, results, n, numberDatesForInterval }) {
+export function ShowTable({ arrayOrdered, range, results, n, numberDatesForInterval, min }) {
+  const [dataForTable, setDataForTable] = useState({})
+  const [isactive, setActive] = useState(false)
+
+  // Simplificar en componentes más pequeños ❌
   return (
     <main className="flex flex-col gap-10">
 
@@ -27,16 +33,27 @@ export function ShowTable({ arrayOrdered, range, results, n, numberDatesForInter
                 <Button text={"Elejir este método"}/>
             </section>
 
-            <section className="md:col-start-1 md:col-end-4 md:flex-grow md:order-none flex flex-col md:flex-row md:flex-wrap md:gap-x-4 gap-y-4 justify-center place-items-center text-xl py-10 md:py-12 lg:py-20 px-10 border-y-2 border-primary">
-               {Object.keys(numberDatesForInterval).map((key, index) => {
+            <section className="md:col-start-1 md:col-end-4 md:flex-grow md:order-none flex flex-col  md:flex-wrap md:gap-x-4 gap-y-4 justify-center place-items-center text-xl py-10 md:py-12 lg:py-20 px-10 border-y-2 border-primary">
+               {Object.keys(numberDatesForInterval).map((interval, index) => {
+                    const handleClick = () => {
+                        const data = numberDatesForInterval[interval].numberData
+                        setDataForTable({interval, data, min, arrayOrdered})
+                        setActive(true)
+                        console.log({interval, data, min, arrayOrdered})
+                    }
+
                      return (
-                        <p className='text-purple-300' key={index}> {key} = 
-                            <span className='text-red-400'> {numberDatesForInterval[key].numberData}</span> 
-                        </p>
+                       <div className='flex flex-col justify-center items-center md:flex-row md:gap-11' key={index}>
+                             <p className='text-purple-300'> Interval {interval} = 
+                                <span className='text-red-400'> {numberDatesForInterval[interval].numberData}</span> 
+                            </p>
+                            <Button text={"Elejir"} onClick={handleClick}/>
+                       </div>
                      )
                })}
             </section>
         </article>
+        {isactive && <ShowTableResults dataForTable={dataForTable} /> }
     </main>
   )
 }

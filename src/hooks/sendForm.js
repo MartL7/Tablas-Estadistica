@@ -8,6 +8,7 @@ export const sendForm = () => {
     const [results, setResults] = useState('')
     const [numberData, setNumberData] = useState('')
     const [numberDatesForInterval, setNumberDatesForInterval] = useState({})
+    const [min, setMin] = useState(0)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -17,6 +18,7 @@ export const sendForm = () => {
         setResults(results)
         setNumberData(n)
         setNumberDatesForInterval(numberDatesForInterval)
+        setMin(Math.min(...arrayOrdered))
     }
 
     const handleChange = (event) => {
@@ -31,6 +33,7 @@ export const sendForm = () => {
         numberData,
         numberDatesForInterval,
         handleSubmit,
-        handleChange
+        handleChange,
+        min
     }
 }

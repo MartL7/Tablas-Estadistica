@@ -31,8 +31,8 @@ export const calculate = (table) => {
     for(let i = 5; i <= 20; i++) {
         valueN = range / i
 
-        if(valueN % 1 > 0.5 ) numberDatesForInterval["Interval " + i] = { numberData: valueN.toFixed(3) }
+        if(valueN % 1 > 0.5 ) numberDatesForInterval[i] = { numberData: valueN.toFixed(3) }
     }
 
-    return { range, arrayOrdered, results, n, numberDatesForInterval }
+    return { range, arrayOrdered, results, n, numberDatesForInterval, min }
 }
