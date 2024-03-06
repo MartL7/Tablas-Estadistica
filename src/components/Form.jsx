@@ -21,7 +21,7 @@ export function Formulario() {
         <>
             <form className="flex flex-col gap-4 m-auto w-72 justify-center items-center" onSubmit={handleSubmit}>
                 <textarea
-                    className="rounded bg-primary border"
+                    className="rounded bg-primary/50 border"
                     name="table"
                     cols="30"
                     rows="10"

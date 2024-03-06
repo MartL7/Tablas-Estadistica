@@ -1,15 +1,8 @@
 import { createTable } from "../logic/createTable"
-import { Th, Td } from "./Th"
+import { Th, Td } from "./HeadedTable"
 
 export function ShowTableResults ({ dataForTable }) {
-    console.log(dataForTable)
-
     const { interval, data, min, arrayOrdered } = dataForTable
-    /*  const tablePrueba = `33, 35, 40, 42, 47, 48, 49, 53, 55, 56, 58, 60, 62, 63, 64, 64, 65, 65, 65, 66, 67, 69, 69, 69, 70, 72, 73, 73, 73, 75, 75, 75, 76, 76, 76, 77, 77, 79, 84, 84, 86, 86, 88, 89, 89, 90, 94, 96` */
-
-   /*  const a = 7
-    const b = 9
-    const c = 33 */
 
     const { elementsTable, totalDate } = createTable(interval, data, min, arrayOrdered)
     console.log(elementsTable, {totalDate}) 
@@ -35,14 +28,14 @@ export function ShowTableResults ({ dataForTable }) {
                     {elementsTable.map((element, index) => {
                         return (
                             <tr key={index}>
-                                <Td>{element.interval}</Td>
-                                <Td>{element.li}</Td>
-                                <Td>{element.ls}</Td>
-                                <Td>{element.Mc}</Td>
-                                <Td>{element.fi}</Td>
-                                <Td>{element.fr}</Td>
-                                <Td>{element.fa}</Td>
-                                <Td>{element.fra}</Td>
+                                <Td> {element.interval} </Td>
+                                <Td> {element.li} </Td>
+                                <Td> {element.ls} </Td>
+                                <Td> {element.Mc} </Td>
+                                <Td> {element.fi} </Td>
+                                <Td> {element.fr} </Td>
+                                <Td> {element.fa} </Td>
+                                <Td> {element.fra} </Td>
                             </tr>
                         )
                     })}

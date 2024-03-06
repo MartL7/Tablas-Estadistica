@@ -17,10 +17,11 @@ export const calculate = (table) => {
 
     const arrayOrdered = array.sort((a, b) => a - b)
 
+    const resultMethod3 = (Math.log(n) * 3.3) + 1
     const results = {
         method1: Math.sqrt(n).toFixed(3),
         method2: Math.cbrt(n).toFixed(3),
-        method3: (Math.log(n) * 3.3) + 1
+        method3: resultMethod3.toFixed(3)
     }
 
     // método por tanteo -> ✅
